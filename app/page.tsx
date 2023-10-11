@@ -6,9 +6,13 @@ import WithApolloProvider from "./provider/ApolloProvider";
 export default function Home() {
   return (
     <main>
-      <WithApolloProvider>
+      {/* <WithApolloProvider>
         <User />
-      </WithApolloProvider>
+      </WithApolloProvider> */}
+      <div>
+        <h1>Home</h1>
+        <p>GraphQL with Next.js</p>
+      </div>
     </main>
   );
 }

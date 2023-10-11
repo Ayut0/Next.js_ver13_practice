@@ -211,10 +211,10 @@
   dependencies:
     node-fetch "^2.6.1"
 
-"@as-integrations/next@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/@as-integrations/next/-/next-2.0.1.tgz"
-  integrity sha512-smtgZPkpWT0iOkSdH28BnOy69jZd6ILGiI3C56d3+6czbTwtcV2sgb2zweRqSd3vBzDPvA4mHkjsJZY7cXlZEA==
+"@as-integrations/next@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/@as-integrations/next/-/next-2.0.2.tgz"
+  integrity sha512-nznFAbWpgB60aF44vLfy9AieYY0t9yv4QqYX0DfPQ24Qa9qny/6uUdKoDpDC0MLWSBLC64XVfzaNylJUpiXVUA==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.22.10", "@babel/code-frame@^7.22.5":
   version "7.22.10"
