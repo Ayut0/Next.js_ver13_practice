@@ -13,10 +13,24 @@ const getPosts = async () => {
       revalidate: 0, // Use 0 to opt out of using cache
     },
   });
+
   if (res.status !== 200) throw new Error("Failed to fetch posts");
   const posts: Post[] = await res.json();
   return posts;
 };
+
+// Check how to get url query params
+const fetchComments = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/getComments");
+    if (res.status !== 200) throw new Error("Failed to fetch comments");
+    const comments: Comment[] = await res.json();
+    return comments;
+  } catch (error) {
+    console.error(error);
+  }
+};
+fetchComments();
 const PostList = async () => {
   const posts = await getPosts();
   return (

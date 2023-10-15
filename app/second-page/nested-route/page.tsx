@@ -52,7 +52,9 @@ const IndexPage = async () => {
   //     fetchPosts();
   //     fetchComments();
   //   }, []);
-//   const posts = await getPosts();
+  //   const posts = await getPosts();
+  
+  
   return (
     <>
       <h2>This is nested route</h2>
