@@ -3,6 +3,8 @@ import React, { Suspense, useEffect, useState } from "react";
 // import type { Comment } from "../../api/getComments/route";
 import PostList from "../../components/Posts";
 import Loading from "../../loading";
+import PrismaPosts from "../../components/PrismaPosts";
+import AddPostForm from "../../components/AddPostForm";
 
 // export type Post = {
 //   userId: number;
@@ -53,8 +55,7 @@ const IndexPage = async () => {
   //     fetchComments();
   //   }, []);
   //   const posts = await getPosts();
-  
-  
+
   return (
     <>
       <h2>This is nested route</h2>
@@ -62,6 +63,8 @@ const IndexPage = async () => {
       <Suspense fallback={<Loading />}>
         <PostList />
       </Suspense>
+      <PrismaPosts />
+      <AddPostForm />
     </>
   );
 };

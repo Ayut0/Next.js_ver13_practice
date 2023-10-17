@@ -19,20 +19,40 @@ const getPosts = async () => {
   return posts;
 };
 
-// Check how to get url query params
-const fetchComments = async () => {
-  try {
-    const res = await fetch("http://localhost:3000/api/getComments");
-    if (res.status !== 200) throw new Error("Failed to fetch comments");
-    const comments: Comment[] = await res.json();
-    return comments;
-  } catch (error) {
-    console.error(error);
-  }
+// Post
+const postAPost = async () => {
+  const postRes = await fetch("http://localhost:3000/api/comments", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: "LeBron",
+      email: "kingJames@lakers.com",
+    }),
+  });
+
+  const data = await postRes.json();
+  console.log(data);
+  return data;
 };
-fetchComments();
+
+// Check how to get url query params
+// const fetchComments = async () => {
+//   try {
+//     const res = await fetch("http://localhost:3000/api/comments");
+//     if (res.status !== 200) throw new Error("Failed to fetch comments");
+//     const comments: Comment[] = await res.json();
+//     return comments;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+// fetchComments();
 const PostList = async () => {
   const posts = await getPosts();
+  // const post = await postAPost();
+  // console.log('post',post);
   return (
     <ul>
       {posts?.map((post) => (

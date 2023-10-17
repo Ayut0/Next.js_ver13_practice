@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
-import { headers, cookies } from "next/headers"
+import { headers, cookies } from "next/headers";
 
 export type Comment = {
   postId: number;
@@ -14,11 +14,11 @@ export type Error = {
   message: string;
 };
 
+// GET
 export const GET = async (
   req: NextApiRequest,
   res: NextApiResponse<Comment[] | Error>
 ) => {
-
   // Tp grab a header or cookie
   const headerList = headers();
   const cookieList = cookies();
@@ -30,7 +30,6 @@ export const GET = async (
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/comments"
     );
-
 
     // Check how to get url query params
 
@@ -48,4 +47,10 @@ export const GET = async (
   } else {
     return NextResponse.json({ message: "Method not allowed" });
   }
+};
+
+// POST
+export const POST = async (req: Request) => {
+  const res = await req.json();
+  return NextResponse.json(res);
 };
