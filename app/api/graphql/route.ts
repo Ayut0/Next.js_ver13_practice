@@ -5,11 +5,14 @@ import { ApolloServer } from "@apollo/server";
 import { NextRequest } from "next/server";
 import typeDefs from "./schema/typeDefs";
 import resolvers from "./schema/resolvers";
+// import { ApolloServerPluginSchemaReporting } from '@apollo/server/plugin/schemaReporting';
+import { ApolloServerPluginSchemaReportingDisabled } from '@apollo/server/plugin/disabled';
 
 // Apollo Server instance takes typeDefs and resolvers
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
+  plugins:[ApolloServerPluginSchemaReportingDisabled()]
 });
 
 // Make sure you don't use the same handler and the Apollo Server instance

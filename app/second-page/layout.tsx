@@ -1,5 +1,10 @@
 import React from "react";
 
+export const metadata = {
+  title: "Second Page",
+  description: "This is the second page",
+}
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
