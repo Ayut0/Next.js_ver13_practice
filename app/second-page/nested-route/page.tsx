@@ -42,7 +42,7 @@ const IndexPage = async () => {
 
   //     const fetchComments = async () => {
   //       try {
-  //         const res = await fetch("http://localhost:3000/api/getComments");
+  //         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getComments`);
   //         if (res.status !== 200) throw new Error("Failed to fetch comments");
   //         const comments: Comment[] = await res.json();
   //         return comments;

@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { headers, cookies } from "next/headers";
 
 export type Comment = {
@@ -16,7 +16,7 @@ export type Error = {
 
 // GET
 export const GET = async (
-  req: NextApiRequest,
+  req: NextRequest,
   res: NextApiResponse<Comment[] | Error>
 ) => {
   // Tp grab a header or cookie

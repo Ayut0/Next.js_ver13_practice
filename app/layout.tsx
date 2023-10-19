@@ -1,4 +1,14 @@
 import { Metadata } from "next";
+//
+import { Inter, David_Libre } from "next/font/google";
+
+// Font optimization
+// const inter = Inter({ subsets: ["latin"] });
+const davidLibre = David_Libre({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Home",
@@ -14,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body className={davidLibre.className}>{children}</body>
     </html>
   );
 }

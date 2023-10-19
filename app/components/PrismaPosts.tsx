@@ -3,9 +3,10 @@ import { Post } from "@prisma/client";
 
 const PrismaPosts = async () => {
   // Using route handler
-  const response = await fetch("http://localhost:3000/api/prisma-posts", {
-    cache: "no-cache",
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/prisma-posts`
+  );
+
   const posts: Post[] = await response.json();
 
   //   const posts = await prisma.post.findMany();

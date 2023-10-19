@@ -11,7 +11,7 @@ const AddPostForm = () => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
-    await fetch("http://localhost:3000/api/prisma-posts", {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/prisma-posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

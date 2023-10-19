@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+
 export type Post = {
   userId: number;
   id: number;
@@ -8,7 +10,7 @@ export type Post = {
 
 const getPosts = async () => {
   await new Promise((resolve) => setTimeout(resolve, 3000));
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_JSON_PLACE_HOLDER}/posts`, {
     next: {
       revalidate: 0, // Use 0 to opt out of using cache
     },
@@ -21,16 +23,19 @@ const getPosts = async () => {
 
 // Post
 const postAPost = async () => {
-  const postRes = await fetch("http://localhost:3000/api/comments", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      name: "LeBron",
-      email: "kingJames@lakers.com",
-    }),
-  });
+  const postRes = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/comments`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: "LeBron",
+        email: "kingJames@lakers.com",
+      }),
+    }
+  );
 
   const data = await postRes.json();
   console.log(data);
@@ -40,7 +45,7 @@ const postAPost = async () => {
 // Check how to get url query params
 // const fetchComments = async () => {
 //   try {
-//     const res = await fetch("http://localhost:3000/api/comments");
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/comments`);
 //     if (res.status !== 200) throw new Error("Failed to fetch comments");
 //     const comments: Comment[] = await res.json();
 //     return comments;
@@ -57,7 +62,7 @@ const PostList = async () => {
     <ul>
       {posts?.map((post) => (
         <li key={post.id}>
-          <h3>{post.title}</h3>
+          <Link href={`/post/${post.id}`}>{post.title}</Link>
           <p>{post.body}</p>
         </li>
       ))}
